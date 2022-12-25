@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmamAliModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_PersonnelID" Type="Int32" Nullable="false" />
+    <Property Name="fld_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fld_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_LastLogin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fk_UserType" Type="Int16" />
+  </EntityType>
+  <EntityContainer Name="EmamAliEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <EntitySet Name="tblDayMessages" EntityType="EmamAliModel.tblDayMessage" />
+  </EntityContainer>
+  <EntityType Name="tblDayMessage">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fld_Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

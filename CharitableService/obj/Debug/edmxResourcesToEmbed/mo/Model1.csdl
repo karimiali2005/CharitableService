@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmamAliModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBoxDischargeItem">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_HeaderID" Type="Int32" />
+    <Property Name="fk_AreaID" Type="Int16" />
+    <Property Name="fld_Location" Type="Int16" />
+    <Property Name="fld_FishNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fk_BoxID" Type="Int32" />
+    <Property Name="fld_DischargeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_PiecePrice" Type="Int64" />
+    <Property Name="fld_PaperPrice" Type="Int64" />
+    <Property Name="fk_SarFasl" Type="Byte" />
+    <Property Name="fld_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="fld_Transferee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_Adder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_AddDate" Type="DateTime" Precision="3" />
+    <Property Name="fld_Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_EditDate_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fld_DeleteDate_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fk_RowStatus" Type="Byte" />
+    <Property Name="fld_Deleter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_EditDate" Type="DateTime" Precision="3" />
+    <Property Name="fld_DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="fld_latitude" Type="Decimal" Precision="18" Scale="14" />
+    <Property Name="fld_longitude" Type="Decimal" Precision="18" Scale="14" />
+    <Property Name="fld_description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblBoxDischargeHeader" Relationship="EmamAliModel.FK_tblBoxDischargeItem_tblBoxDischargeHeader" FromRole="tblBoxDischargeItem" ToRole="tblBoxDischargeHeader" />
+  </EntityType>
+  <EntityContainer Name="EmamAliEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBoxDischargeItems" EntityType="Self.tblBoxDischargeItem" />
+    <EntitySet Name="tblBoxDischargeHeaders" EntityType="EmamAliModel.tblBoxDischargeHeader" />
+    <AssociationSet Name="FK_tblBoxDischargeItem_tblBoxDischargeHeader" Association="EmamAliModel.FK_tblBoxDischargeItem_tblBoxDischargeHeader">
+      <End Role="tblBoxDischargeHeader" EntitySet="tblBoxDischargeHeaders" />
+      <End Role="tblBoxDischargeItem" EntitySet="tblBoxDischargeItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblBoxDischargeHeader">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="Int32" Nullable="false" />
+    <Property Name="fld_DischargeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fld_DischargeDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fk_AreaID" Type="Int16" />
+    <Property Name="fk_Shift" Type="Int32" />
+    <Property Name="fld_Location" Type="Int16" />
+    <Property Name="fld_Duration" Type="Int16" />
+    <Property Name="fld_PiecePrice" Type="Int64" />
+    <Property Name="fld_PiecePriceOK" Type="Int64" />
+    <Property Name="fld_PaperPrice" Type="Int64" />
+    <Property Name="fld_PaperPriceOK" Type="Int64" />
+    <Property Name="fk_Agent1ID" Type="Int32" />
+    <Property Name="fk_Agent2ID" Type="Int32" />
+    <Property Name="WhoDriver" Type="Byte" />
+    <Property Name="fld_Descr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CountOfBox" Type="Int16" />
+    <Property Name="fld_Adder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_AddDate" Type="DateTime" Precision="3" />
+    <Property Name="fld_Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_EditDate_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fld_DeleteDate_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fk_RowStatus" Type="Byte" />
+    <Property Name="agent1Temp" Type="Int32" />
+    <Property Name="fld_Deleter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fld_TotalBox" Type="Int16" />
+    <Property Name="fld_EditDate" Type="DateTime" Precision="3" />
+    <Property Name="fld_DeleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblBoxDischargeItems" Relationship="EmamAliModel.FK_tblBoxDischargeItem_tblBoxDischargeHeader" FromRole="tblBoxDischargeHeader" ToRole="tblBoxDischargeItem" />
+  </EntityType>
+  <Association Name="FK_tblBoxDischargeItem_tblBoxDischargeHeader">
+    <End Type="EmamAliModel.tblBoxDischargeHeader" Role="tblBoxDischargeHeader" Multiplicity="0..1" />
+    <End Type="EmamAliModel.tblBoxDischargeItem" Role="tblBoxDischargeItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBoxDischargeHeader">
+        <PropertyRef Name="PKID" />
+      </Principal>
+      <Dependent Role="tblBoxDischargeItem">
+        <PropertyRef Name="fk_HeaderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

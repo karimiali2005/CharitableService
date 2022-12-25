@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmamAliModelStoreContainer" CdmEntityContainer="EmamAliEntities">
+    <EntitySetMapping Name="tblBoxDischargeItems">
+      <EntityTypeMapping TypeName="EmamAliModel.tblBoxDischargeItem">
+        <MappingFragment StoreEntitySet="tblBoxDischargeItem">
+          <ScalarProperty Name="PKID" ColumnName="PKID" />
+          <ScalarProperty Name="fk_HeaderID" ColumnName="fk_HeaderID" />
+          <ScalarProperty Name="fk_AreaID" ColumnName="fk_AreaID" />
+          <ScalarProperty Name="fld_Location" ColumnName="fld_Location" />
+          <ScalarProperty Name="fld_FishNo" ColumnName="fld_FishNo" />
+          <ScalarProperty Name="fk_BoxID" ColumnName="fk_BoxID" />
+          <ScalarProperty Name="fld_DischargeTime" ColumnName="fld_DischargeTime" />
+          <ScalarProperty Name="fld_PiecePrice" ColumnName="fld_PiecePrice" />
+          <ScalarProperty Name="fld_PaperPrice" ColumnName="fld_PaperPrice" />
+          <ScalarProperty Name="fk_SarFasl" ColumnName="fk_SarFasl" />
+          <ScalarProperty Name="fld_Address" ColumnName="fld_Address" />
+          <ScalarProperty Name="fld_Transferee" ColumnName="fld_Transferee" />
+          <ScalarProperty Name="fld_Adder" ColumnName="fld_Adder" />
+          <ScalarProperty Name="fld_AddDate" ColumnName="fld_AddDate" />
+          <ScalarProperty Name="fld_Editor" ColumnName="fld_Editor" />
+          <ScalarProperty Name="fld_EditDate_" ColumnName="fld_EditDate_" />
+          <ScalarProperty Name="fld_DeleteDate_" ColumnName="fld_DeleteDate_" />
+          <ScalarProperty Name="fk_RowStatus" ColumnName="fk_RowStatus" />
+          <ScalarProperty Name="fld_Deleter" ColumnName="fld_Deleter" />
+          <ScalarProperty Name="fld_EditDate" ColumnName="fld_EditDate" />
+          <ScalarProperty Name="fld_DeleteDate" ColumnName="fld_DeleteDate" />
+          <ScalarProperty Name="fld_latitude" ColumnName="fld_latitude" />
+          <ScalarProperty Name="fld_longitude" ColumnName="fld_longitude" />
+          <ScalarProperty Name="fld_description" ColumnName="fld_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBoxDischargeHeaders">
+      <EntityTypeMapping TypeName="EmamAliModel.tblBoxDischargeHeader">
+        <MappingFragment StoreEntitySet="tblBoxDischargeHeader">
+          <ScalarProperty Name="fld_DeleteDate" ColumnName="fld_DeleteDate" />
+          <ScalarProperty Name="fld_EditDate" ColumnName="fld_EditDate" />
+          <ScalarProperty Name="fld_TotalBox" ColumnName="fld_TotalBox" />
+          <ScalarProperty Name="fld_Deleter" ColumnName="fld_Deleter" />
+          <ScalarProperty Name="agent1Temp" ColumnName="agent1Temp" />
+          <ScalarProperty Name="fk_RowStatus" ColumnName="fk_RowStatus" />
+          <ScalarProperty Name="fld_DeleteDate_" ColumnName="fld_DeleteDate_" />
+          <ScalarProperty Name="fld_EditDate_" ColumnName="fld_EditDate_" />
+          <ScalarProperty Name="fld_Editor" ColumnName="fld_Editor" />
+          <ScalarProperty Name="fld_AddDate" ColumnName="fld_AddDate" />
+          <ScalarProperty Name="fld_Adder" ColumnName="fld_Adder" />
+          <ScalarProperty Name="CountOfBox" ColumnName="CountOfBox" />
+          <ScalarProperty Name="fld_Descr" ColumnName="fld_Descr" />
+          <ScalarProperty Name="WhoDriver" ColumnName="WhoDriver" />
+          <ScalarProperty Name="fk_Agent2ID" ColumnName="fk_Agent2ID" />
+          <ScalarProperty Name="fk_Agent1ID" ColumnName="fk_Agent1ID" />
+          <ScalarProperty Name="fld_PaperPriceOK" ColumnName="fld_PaperPriceOK" />
+          <ScalarProperty Name="fld_PaperPrice" ColumnName="fld_PaperPrice" />
+          <ScalarProperty Name="fld_PiecePriceOK" ColumnName="fld_PiecePriceOK" />
+          <ScalarProperty Name="fld_PiecePrice" ColumnName="fld_PiecePrice" />
+          <ScalarProperty Name="fld_Duration" ColumnName="fld_Duration" />
+          <ScalarProperty Name="fld_Location" ColumnName="fld_Location" />
+          <ScalarProperty Name="fk_Shift" ColumnName="fk_Shift" />
+          <ScalarProperty Name="fk_AreaID" ColumnName="fk_AreaID" />
+          <ScalarProperty Name="fld_DischargeDate" ColumnName="fld_DischargeDate" />
+          <ScalarProperty Name="fld_DischargeNo" ColumnName="fld_DischargeNo" />
+          <ScalarProperty Name="PKID" ColumnName="PKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

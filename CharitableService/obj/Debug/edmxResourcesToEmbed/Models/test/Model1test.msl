@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmamAliModelStoreContainer" CdmEntityContainer="EmamAliEntities1">
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="EmamAliModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="PKID" ColumnName="PKID" />
+          <ScalarProperty Name="fk_PersonnelID" ColumnName="fk_PersonnelID" />
+          <ScalarProperty Name="fld_UserName" ColumnName="fld_UserName" />
+          <ScalarProperty Name="fld_Password" ColumnName="fld_Password" />
+          <ScalarProperty Name="fld_LastLogin" ColumnName="fld_LastLogin" />
+          <ScalarProperty Name="fk_UserType" ColumnName="fk_UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDayMessages">
+      <EntityTypeMapping TypeName="EmamAliModel.tblDayMessage">
+        <MappingFragment StoreEntitySet="tblDayMessage">
+          <ScalarProperty Name="fld_Message" ColumnName="fld_Message" />
+          <ScalarProperty Name="PKID" ColumnName="PKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

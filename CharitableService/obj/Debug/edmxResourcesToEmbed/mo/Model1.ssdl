@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmamAliModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBoxDischargeHeader">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="int" Nullable="false" />
+    <Property Name="fld_DischargeNo" Type="varchar" MaxLength="50" />
+    <Property Name="fld_DischargeDate" Type="varchar" MaxLength="10" />
+    <Property Name="fk_AreaID" Type="smallint" />
+    <Property Name="fk_Shift" Type="int" />
+    <Property Name="fld_Location" Type="smallint" />
+    <Property Name="fld_Duration" Type="smallint" />
+    <Property Name="fld_PiecePrice" Type="bigint" />
+    <Property Name="fld_PiecePriceOK" Type="bigint" />
+    <Property Name="fld_PaperPrice" Type="bigint" />
+    <Property Name="fld_PaperPriceOK" Type="bigint" />
+    <Property Name="fk_Agent1ID" Type="int" />
+    <Property Name="fk_Agent2ID" Type="int" />
+    <Property Name="WhoDriver" Type="tinyint" />
+    <Property Name="fld_Descr" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountOfBox" Type="smallint" />
+    <Property Name="fld_Adder" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_AddDate" Type="datetime" />
+    <Property Name="fld_Editor" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_EditDate_" Type="varchar" MaxLength="10" />
+    <Property Name="fld_DeleteDate_" Type="varchar" MaxLength="10" />
+    <Property Name="fk_RowStatus" Type="tinyint" />
+    <Property Name="agent1Temp" Type="int" />
+    <Property Name="fld_Deleter" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_TotalBox" Type="smallint" />
+    <Property Name="fld_EditDate" Type="datetime" />
+    <Property Name="fld_DeleteDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblBoxDischargeItem">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_HeaderID" Type="int" />
+    <Property Name="fk_AreaID" Type="smallint" />
+    <Property Name="fld_Location" Type="smallint" />
+    <Property Name="fld_FishNo" Type="varchar" MaxLength="10" />
+    <Property Name="fk_BoxID" Type="int" />
+    <Property Name="fld_DischargeTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_PiecePrice" Type="bigint" />
+    <Property Name="fld_PaperPrice" Type="bigint" />
+    <Property Name="fk_SarFasl" Type="tinyint" />
+    <Property Name="fld_Address" Type="nvarchar" MaxLength="300" />
+    <Property Name="fld_Transferee" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_Adder" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_AddDate" Type="datetime" />
+    <Property Name="fld_Editor" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_EditDate_" Type="varchar" MaxLength="10" />
+    <Property Name="fld_DeleteDate_" Type="varchar" MaxLength="10" />
+    <Property Name="fk_RowStatus" Type="tinyint" />
+    <Property Name="fld_Deleter" Type="nvarchar" MaxLength="50" />
+    <Property Name="fld_EditDate" Type="datetime" />
+    <Property Name="fld_DeleteDate" Type="datetime" />
+    <Property Name="fld_latitude" Type="decimal" Precision="18" Scale="14" />
+    <Property Name="fld_longitude" Type="decimal" Precision="18" Scale="14" />
+    <Property Name="fld_description" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <Association Name="FK_tblBoxDischargeItem_tblBoxDischargeHeader">
+    <End Role="tblBoxDischargeHeader" Type="Self.tblBoxDischargeHeader" Multiplicity="0..1" />
+    <End Role="tblBoxDischargeItem" Type="Self.tblBoxDischargeItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBoxDischargeHeader">
+        <PropertyRef Name="PKID" />
+      </Principal>
+      <Dependent Role="tblBoxDischargeItem">
+        <PropertyRef Name="fk_HeaderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmamAliModelStoreContainer">
+    <EntitySet Name="tblBoxDischargeHeader" EntityType="Self.tblBoxDischargeHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBoxDischargeItem" EntityType="Self.tblBoxDischargeItem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblBoxDischargeItem_tblBoxDischargeHeader" Association="Self.FK_tblBoxDischargeItem_tblBoxDischargeHeader">
+      <End Role="tblBoxDischargeHeader" EntitySet="tblBoxDischargeHeader" />
+      <End Role="tblBoxDischargeItem" EntitySet="tblBoxDischargeItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
